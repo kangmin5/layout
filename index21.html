@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout세팅(container통합/반응형/grid)</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    /* #wrap{
+        width: 100%;
+    } */
+    #header{
+        /* width: 100vw; */
+        height: 100px;
+        background-color: #b5b3dc;
+    }
+    #nav{
+        /* width: 100vw; */
+        height: 100px;
+        background-color: #6666ae;
+
+    }
+    #section{
+        /* width: 100vw; */
+        height:780px;
+        background-color: #67a59f;
+    }
+    #section2{
+        /* width: 100vw; */
+        height:580px;
+        background-color: #d3acc5;
+    }
+    #footer{
+        /* width: 100vw; */
+        height: 100px;
+        background-color: #698b88;
+    }
+    .container{
+        width: 1200px;
+        height: inherit;
+        background-color:rgba(0, 0, 0, 0.3) ;
+        margin:0 auto;
+    }
+/* contents */
+    .contents{
+        display: grid;
+        grid-template-areas:
+            "cont1 cont1"
+            "cont2 cont2"
+            "cont3 cont4"
+        ;
+        grid-template-columns: 50% 50% ;
+        grid-template-rows: 100px 200px 480px;
+
+    }
+    .contents .cont1{
+        background-color: #598d88;
+        grid-area: cont1;
+    }
+    .contents .cont2{
+        background-color: #2e857e;
+        grid-area: cont2;
+    }
+    .contents .cont3{
+        background-color: #173633;
+        grid-area: cont3;
+    }
+    .contents .cont4{
+        background-color: #06433e;
+        grid-area: cont4;
+    }
+/* contents end */
+/* contents2 */
+.contents2{
+        display: grid;
+        grid-template-areas:
+            "cont21 cont21 cont21 cont21"
+            "cont22 cont22 cont22 cont22"
+            "cont23 cont24 cont25 cont26"
+        ;
+        grid-template-columns: repeat(4,1fr) ;
+        grid-template-rows: 100px 200px 280px;
+
+    }
+    .contents2 .cont21{
+        background-color: #d487b8;
+        grid-area: cont21;
+    }
+    .contents2 .cont22{
+        background-color: #d251a3;
+        grid-area: cont22;
+    }
+    .contents2 .cont23{
+        background-color: #d51e92;
+        grid-area: cont23;
+    }
+    .contents2 .cont24{
+        background-color: #a45787;
+        grid-area: cont24;
+    }
+    .contents2 .cont25{
+        background-color: #9c2e72;
+        grid-area: cont25;
+    }
+    .contents2 .cont26{
+        background-color: #941062;
+        grid-area: cont26;
+    }
+/* contents2 end */
+
+    @media(max-width:1300px){
+        .container{
+            width: 96%;
+        }
+        .contents{
+            grid-template-areas:
+                "cont1 cont2 cont2"
+                "cont1 cont3 cont4"
+            ;
+            grid-template-columns:1fr 1fr 1fr ;
+            grid-template-rows:30% 70% ;
+        }
+        .contents2{
+            grid-template-areas:
+                "cont21 cont21 cont21 cont21"
+                "cont22 cont22 cont22 cont22"
+                "cont23 cont24 cont25 cont26"
+            ;
+            grid-template-columns:1fr 1fr 1fr 1fr ;
+            grid-template-rows:100px 200px 280px;
+        }
+    }
+    @media(max-width:768px){
+        .container{
+            width: 100%;
+        }
+        .contents{
+            grid-template-areas:
+                "cont1 cont2 "
+                "cont1 cont3 "
+                "cont1 cont4 "
+            ;
+            grid-template-columns:30% 70% ;
+            grid-template-rows:repeat(3,1fr) ;
+        }
+        .contents2{
+            grid-template-areas:
+                "cont21 cont21 cont21 cont21"
+                "cont22 cont22 cont22 cont22"
+                "cont23 cont24 cont25 cont26"
+            ;
+            grid-template-columns:1fr 1fr 1fr 1fr ;
+            grid-template-rows:100px 200px 280px;
+        }
+    }
+    @media(max-width:480px){
+        .container{
+            width: 100%;
+        }
+        .contents{
+            grid-template-areas:
+                "cont1 "
+                "cont2 "
+                "cont3 "
+                "cont4 "
+            ;
+            grid-template-columns:1fr ;
+            grid-template-rows:1fr 1fr 1fr 1fr;
+        }
+        .contents2{
+            grid-template-areas:
+                "cont21"
+                "cont22"
+                "cont23"
+                "cont24"
+                "cont25"
+                "cont26"
+            ;
+            grid-template-columns:1fr;
+            grid-template-rows:repeat(6,1fr);
+        }
+    }
+</style>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="container"></div>
+        </div>
+        <div id="nav">
+            <div class="container"></div>
+        </div>
+        <div id="section">
+            <div class="contents container">
+                <div class="cont1">1</div>
+                <div class="cont2">2</div>
+                <div class="cont3">3</div>
+                <div class="cont4">4</div>
+            </div>
+        </div>
+        <div id="section2">
+            <div class="contents2 container">
+                <div class="cont21">21</div>
+                <div class="cont22">22</div>
+                <div class="cont23">23</div>
+                <div class="cont24">24</div>
+                <div class="cont25">25</div>
+                <div class="cont26">26</div>
+
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
